@@ -1,8 +1,10 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+//var io = require('socket.io')(http);
 var _ = require('lodash-node');
+
+var io = require('socket.io').listen(http);
 
 var users = [];
 
