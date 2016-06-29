@@ -17,6 +17,7 @@ app.set('view engine', 'ejs');
 app.get('/', function(request, response) {
   response.render('pages/index');
 });
+io.set('origins', '*');
 
 io.on('connection', function (socket) {
   socket.on('login', function (name) {
