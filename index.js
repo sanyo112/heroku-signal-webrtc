@@ -3,6 +3,9 @@ var app = express();
 var http = require('http');
 //var io = require('socket.io')(http);
 var _ = require('lodash-node');
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
+
 
 var users = [];
 
@@ -19,12 +22,11 @@ app.get('/', function(request, response) {
   //response.sendfile('pages/index.html');
 });
 
-app.listen(app.get('port'), function() {
+/*app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
-});
+});*/
 
-var server = http.createServer(app);
-var io = require('socket.io').listen(server);
+
 
 io.set('origins', '*');
 
@@ -75,6 +77,8 @@ io.on('connection', function (socket) {
     }
   });
 });
+
+server.listen(app.get('port'));
 
 
 
