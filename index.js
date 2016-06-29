@@ -28,7 +28,7 @@ app.get('/', function(request, response) {
 
 
 
-io.set('origins', '*');
+//io.set('origins', '*');
 
 io.on('connection', function (socket) {
   socket.on('login', function (name) {
